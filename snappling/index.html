@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>עובדי סנפלינג | קבוצת טופ גובה</title>
+<meta name="description" content="עובדי סנפלינג מקצועיים מקבוצת טופ גובה: 100 ₪ לשעה לעובד + מע״מ, 7 שנות ניסיון לפחות, יום עבודה מלא. משאירים שם חברה וטלפון ואנחנו חוזרים אליכם.">
+<meta name="theme-color" content="#0C0F1A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="he_IL">
+<meta property="og:site_name" content="קבוצת טופ גובה">
+<meta property="og:title" content="עובדי סנפלינג מקצועיים ב־100 ₪ לשעה + מע״מ">
+<meta property="og:description" content="7 שנות ניסיון לפחות, יום עבודה מלא, ובוחנים את העובדים לפני שמזמינים. השאירו פרטים ונחזור אליכם.">
+<meta property="og:url" content="https://topgova.github.io/snappling/">
+<meta property="og:image" content="https://topgova.github.io/snappling/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="קבוצת טופ גובה, עובדי סנפלינג מקצועיים ב־100 ₪ לשעה + מע״מ">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap">
+<style>
+/* Layout: navy brand hero (brand-book guide lines, orange glows, ropes) holding the pitch beside the lead card;
+   light bands of rounded white cards; a navy "rope" band for the process; navy footer. Mobile: one column, form right after the pitch. */
+:root{
+  --navy:#0C0F1A; --navy-2:#121829; --navy-3:#1B2236;
+  --brand:#F38641; --brand-light:#FDA269; --brand-deep:#DF7224; --brand-dark:#C86526; --brand-tint:#FFF1E7;
+  --ink:#272727; --ink-2:#3A3A3A; --ink-muted:#646464; --ink-soft:#6B6B6B;
+  --ground:#EFEFEF; --surface:#FBFBFB; --card:#FFFFFF; --line:#E4E4E4; --field:#FAFAFA;
+  --on-dark:#FFFFFF; --on-dark-2:#C9CDD8; --on-dark-3:#9AA0AE;
+  --ok:#1E7B3A; --err:#C5221F;
+  --font:"Liebling","Heebo",Arial,sans-serif;
+  --r-sm:13px; --r-md:16px; --r-card:24px; --r-xl:32px;
+  --shadow-card:0 8px 24px rgba(39,39,39,.10);
+  --shadow-lift:0 18px 44px rgba(39,39,39,.14);
+  --wrap:1180px; --gutter:clamp(16px,4.2vw,32px);
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;font-family:var(--font);font-size:17px;line-height:1.6;color:var(--ink);background:var(--ground);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{margin:0;line-height:1.1;text-wrap:balance}
+p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+button,input,select,textarea{font:inherit}
+[hidden]{display:none!important}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+.wrap{width:100%;max-width:calc(var(--wrap) + 2 * var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
+.num{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ico{width:22px;height:22px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 26px;border-radius:var(--r-md);border:0;cursor:pointer;text-decoration:none;font-weight:800;font-size:17px;line-height:1.2;transition:transform .15s ease,box-shadow .2s ease,background-color .2s ease,border-color .2s ease}
+.btn .ico{width:20px;height:20px}
+.btn--primary{color:#1B1B1B;background:linear-gradient(180deg,#F99C61 0%,#F38641 52%,#EB7A35 100%);box-shadow:0 12px 28px rgba(243,134,65,.36),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn--primary:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(243,134,65,.46),inset 0 1px 0 rgba(255,255,255,.4)}
+.btn--primary:active{transform:none;background:var(--brand-deep)}
+.btn--ghost{color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2)}
+.btn--ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.32)}
+.btn--block{width:100%}
+
+/* ---------- top bar ---------- */
+.topbar{position:absolute;inset-inline:0;top:0;z-index:5;padding-top:max(14px,env(safe-area-inset-top,0px))}
+.topbar__in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+.topbar__logo img{height:56px;width:auto}
+.topbar__actions{display:flex;align-items:center;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);transition:background-color .2s}
+.pill:hover{background:rgba(255,255,255,.12)}
+.pill .ico{color:var(--brand)}
+.pill__who{color:var(--on-dark-2);font-weight:500}
+.round{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;text-decoration:none;color:var(--on-dark);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);transition:background-color .2s}
+.round:hover{background:rgba(255,255,255,.12)}
+.round .ico{width:21px;height:21px}
+.round--brand{background:var(--brand);border-color:var(--brand);color:#1B1B1B}
+.round--brand:hover{background:var(--brand-light)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;color:var(--on-dark);background:var(--navy)}
+.hero__bg{position:absolute;inset:0;z-index:-3;pointer-events:none;background:
+  radial-gradient(52rem 40rem at -6% 112%,rgba(243,134,65,.40),rgba(243,134,65,0) 62%),
+  radial-gradient(34rem 26rem at 108% -8%,rgba(243,134,65,.24),rgba(243,134,65,0) 62%),
+  radial-gradient(40rem 26rem at 62% 118%,rgba(255,255,255,.07),rgba(255,255,255,0) 64%),
+  linear-gradient(180deg,#0C0F1A 0%,#0E1322 100%)}
+.hero__arcs{position:absolute;z-index:-2;pointer-events:none;bottom:-640px;left:-560px;width:980px;height:980px;border-radius:50%;border:1px solid rgba(243,134,65,.16)}
+.hero__arcs::before{content:"";position:absolute;inset:70px;border-radius:50%;border:1px solid rgba(255,255,255,.07)}
+.hero__lines{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.hero__lines i{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(255,255,255,.09) 16%,rgba(255,255,255,.06) 84%,rgba(255,255,255,0))}
+.hero__lines i:nth-child(1){left:calc(50% - 652px)}
+.hero__lines i:nth-child(2){left:calc(50% - 622px)}
+.hero__lines i:nth-child(3){right:calc(50% - 652px)}
+.hero__lines i:nth-child(4){right:calc(50% - 622px)}
+.rope{position:absolute;top:0;width:2px;height:68%;background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.14));border-radius:0 0 2px 2px}
+.rope--a{left:calc(50% - 638px)}
+.rope--b{right:calc(50% - 638px);height:48%}
+.rope span{position:absolute;left:50%;top:44%;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 6px rgba(243,134,65,.18),0 0 26px 6px rgba(243,134,65,.5);animation:ride 11s ease-in-out infinite}
+.rope--b span{top:30%;animation-duration:14s;animation-delay:-5s}
+@keyframes ride{0%,100%{transform:translateY(0)}50%{transform:translateY(110px)}}
+@media (max-width:1320px){.rope{display:none}}
+.hero__in{display:grid;grid-template-columns:minmax(0,1.16fr) minmax(0,.84fr);gap:clamp(32px,5vw,72px);align-items:center;padding-block:clamp(120px,15vh,156px) clamp(64px,8vw,108px)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--brand-light);padding:7px 14px;border-radius:999px;background:rgba(243,134,65,.1);border:1px solid rgba(243,134,65,.3)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 4px rgba(243,134,65,.2)}
+.hero h1{margin-top:22px;font-size:clamp(44px,5.4vw,72px);font-weight:900;line-height:1.02;letter-spacing:-.005em}
+.hero h1 .accent{display:block;color:var(--brand);background:linear-gradient(270deg,#FDA269 0%,#F38641 55%,#EE7C37 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero h1 .nowrap{white-space:nowrap}
+.hero h1 .accent__per{font-size:.4em;font-weight:800;white-space:nowrap}
+.hero__lead{margin-top:22px;max-width:33em;font-size:clamp(17px,1.55vw,20px);line-height:1.65;color:var(--on-dark-2)}
+.price{display:flex;align-items:center;gap:18px;width:fit-content;max-width:100%;margin-top:28px;padding:14px 22px 14px 26px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.13);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 40px rgba(0,0,0,.25)}
+.price__fig{display:flex;align-items:flex-start;gap:4px;line-height:1}
+.price__num{font-size:48px;font-weight:900;font-variant-numeric:tabular-nums;color:var(--on-dark)}
+.price__cur{font-size:24px;font-weight:700;color:var(--brand-light);padding-top:4px}
+.price__txt{border-inline-start:1px solid rgba(255,255,255,.16);padding-inline-start:18px;font-size:15px;line-height:1.45;color:var(--on-dark-2)}
+.price__txt b{display:block;font-size:18px;color:var(--on-dark)}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:30px;font-size:14.5px;color:var(--on-dark-3)}
+.trust li{display:inline-flex;align-items:center;gap:8px}
+.trust .ico{width:19px;height:19px;color:var(--brand)}
+
+/* ---------- lead card ---------- */
+.lead{position:relative;scroll-margin-top:24px}
+.lead__card{position:relative;background:var(--card);color:var(--ink);border-radius:28px;padding:clamp(22px,3vw,34px);box-shadow:0 34px 80px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.06)}
+.lead__card::before{content:"";position:absolute;inset:-1px;z-index:-1;border-radius:29px;background:linear-gradient(160deg,rgba(253,162,105,.75),rgba(243,134,65,0) 38%);filter:blur(18px);opacity:.55}
+.lead__badge{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:#A9501A;background:var(--brand-tint);padding:6px 12px;border-radius:999px}
+.lead__badge .ico{width:16px;height:16px}
+.lead h2{margin-top:14px;font-size:clamp(26px,2.6vw,32px);font-weight:800}
+.lead__sub{margin-top:8px;font-size:16px;color:var(--ink-muted)}
+.form{display:grid;gap:18px;margin-top:22px}
+.field{display:grid;gap:8px}
+.label{font-size:15px;font-weight:600;color:var(--ink-2)}
+.req{color:var(--brand-dark)}
+.opt{font-weight:400;color:var(--ink-soft)}
+.input{width:100%;height:54px;padding:0 16px;border-radius:14px;border:1.5px solid #D8D8D8;background:var(--field);font-size:17px;color:var(--ink);transition:border-color .15s,box-shadow .15s,background-color .15s}
+.input::placeholder{color:#A3A3A3}
+.input:hover{border-color:#C2C2C2}
+.input:focus{outline:none;border-color:var(--brand);background:#fff;box-shadow:0 0 0 4px rgba(243,134,65,.18)}
+.input[aria-invalid="true"]{border-color:var(--err);background:#FFF7F6}
+.input--ltr{direction:ltr;text-align:right}
+.input--ltr::placeholder{text-align:right}
+textarea.input{height:auto;min-height:98px;padding:12px 16px;line-height:1.5;resize:vertical}
+select.input{appearance:none;-webkit-appearance:none;padding-left:44px;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23646464' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:20px;background-position:left 14px center}
+.err{display:none;align-items:center;gap:6px;font-size:14px;font-weight:500;color:var(--err)}
+.field.has-error .err{display:flex}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;display:inline-flex}
+.chip input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border-radius:999px;border:1.5px solid #DADADA;background:#fff;font-size:15px;font-weight:500;color:var(--ink-2);transition:background-color .15s,border-color .15s,color .15s,box-shadow .15s;user-select:none}
+.chip input:hover+span{border-color:#BDBDBD}
+.chip input:checked+span{border-color:var(--brand);background:var(--brand-tint);color:#A04A16;font-weight:700;box-shadow:0 0 0 3px rgba(243,134,65,.14)}
+.chip input:focus-visible+span{outline:3px solid var(--brand);outline-offset:2px}
+.hint{font-size:13.5px;color:var(--ink-soft)}
+.more{border-top:1px dashed #DEDEDE;padding-top:10px}
+.more summary{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 0;cursor:pointer;list-style:none;font-size:15.5px;font-weight:600;color:var(--ink-2)}
+.more summary::-webkit-details-marker{display:none}
+.more summary .plus{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:#F2F2F2;color:var(--ink-muted);transition:transform .2s ease,background-color .2s}
+.more summary:hover .plus{background:#EAEAEA}
+.more[open] summary .plus{transform:rotate(45deg)}
+.more summary .plus .ico{width:16px;height:16px}
+.more__body{display:grid;gap:18px;padding-top:12px}
+.hp{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;opacity:0;pointer-events:none}
+.submit .spinner{display:none;width:20px;height:20px;border-radius:50%;border:2.5px solid rgba(27,27,27,.25);border-top-color:#1B1B1B;animation:spin .8s linear infinite}
+.submit[aria-busy="true"] .spinner{display:block}
+.submit[aria-busy="true"] .ico{display:none}
+.submit[disabled]{cursor:progress;opacity:.85}
+@keyframes spin{to{transform:rotate(360deg)}}
+.privacy{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.5;color:var(--ink-soft)}
+.privacy .ico{width:16px;height:16px;margin-top:2px}
+.alert{display:grid;gap:12px;padding:16px;border-radius:16px;background:#FFF4F2;border:1px solid #F5C7C1;color:#7A1F17;font-size:15px}
+.alert[hidden]{display:none}
+.btn--wa{min-height:48px;font-size:16px;color:#fff;background:var(--navy);box-shadow:none}
+.btn--wa:hover{background:var(--navy-3)}
+.done{display:grid;justify-items:start;gap:14px;padding-block:8px}
+.done__icon{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:linear-gradient(160deg,#FDA269,#F38641);color:#1B1B1B;box-shadow:0 12px 28px rgba(243,134,65,.35)}
+.done__icon .ico{width:32px;height:32px;stroke-width:2.4}
+.done h2{margin-top:6px}
+.done__ref{font-size:15px;color:var(--ink-muted)}
+.done__ref b{color:var(--ink)}
+.done__more{margin-top:4px;font-size:15px;font-weight:600;color:var(--ink-2)}
+
+/* ---------- sections ---------- */
+.section{padding-block:clamp(64px,9vw,112px)}
+.section__head{display:grid;gap:12px;max-width:46em;margin-bottom:clamp(28px,4vw,44px)}
+.kicker{font-size:14.5px;font-weight:700;letter-spacing:.02em;color:var(--brand-dark)}
+.section h2{font-size:clamp(30px,4.4vw,48px);font-weight:900}
+.section__sub{font-size:18px;color:var(--ink-muted)}
+
+/* pains */
+.pains{position:relative;background:
+  repeating-linear-gradient(135deg,rgba(39,39,39,.022) 0 2px,rgba(39,39,39,0) 2px 16px),
+  linear-gradient(180deg,#EDEDED 0%,#F4F4F4 100%)}
+.pains__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.pain{position:relative;display:grid;align-content:start;gap:18px;padding:28px;border-radius:var(--r-card);background:var(--card);box-shadow:var(--shadow-card);border:1px solid #EAEAEA}
+.pain__icon{position:relative;display:grid;place-items:center;width:58px;height:58px;border-radius:18px;background:linear-gradient(160deg,#F6F6F6,#E9E9E9);color:var(--ink-muted);overflow:hidden}
+.pain__icon .ico{width:28px;height:28px}
+.pain__icon::after{content:"";position:absolute;width:76px;height:3px;border-radius:3px;background:var(--brand);transform:rotate(-38deg);box-shadow:0 0 0 2px #F3F3F3}
+.pain p{font-size:clamp(19px,1.7vw,21px);font-weight:700;line-height:1.45;color:var(--ink)}
+.pains__answer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 28px;margin-top:28px;padding:22px 28px;border-radius:var(--r-card);background:var(--navy);color:var(--on-dark);box-shadow:var(--shadow-lift);background-image:radial-gradient(30rem 14rem at 0% 120%,rgba(243,134,65,.35),rgba(243,134,65,0) 70%)}
+.pains__answer strong{font-size:clamp(26px,3vw,34px);font-weight:900;color:var(--brand)}
+.pains__answer span{display:block;font-size:16px;color:var(--on-dark-2);margin-top:2px}
+
+/* benefits */
+.benefits{background:var(--surface)}
+.benefits__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.benefit{display:grid;align-content:start;gap:14px;padding:28px;border-radius:var(--r-card);background:var(--card);border:1px solid #ECECEC;box-shadow:var(--shadow-card);transition:transform .2s ease,box-shadow .2s ease}
+.benefit:hover{transform:translateY(-2px);box-shadow:var(--shadow-lift)}
+.benefit__icon{display:grid;place-items:center;width:54px;height:54px;border-radius:16px;background:linear-gradient(160deg,#FFF0E5,#FFDCC4);color:var(--brand-dark);box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.benefit__icon .ico{width:26px;height:26px}
+.benefit h3{font-size:20px;font-weight:800}
+.benefit p{font-size:16px;line-height:1.6;color:var(--ink-muted)}
+
+/* process */
+.process{position:relative;isolation:isolate;overflow:hidden;color:var(--on-dark);background:var(--navy)}
+.process::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(40rem 28rem at 110% 0%,rgba(243,134,65,.22),rgba(243,134,65,0) 62%),
+  radial-gradient(36rem 26rem at -10% 110%,rgba(255,255,255,.06),rgba(255,255,255,0) 62%)}
+.process .kicker{color:var(--brand-light)}
+.process .section__sub{color:var(--on-dark-2)}
+.process__grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,72px);align-items:start}
+.steps{position:relative;--p:0}
+.steps__list{display:grid;gap:30px}
+.steps::before{content:"";position:absolute;top:10px;bottom:10px;inset-inline-start:21px;width:2px;border-radius:2px;background:linear-gradient(180deg,rgba(255,255,255,.45),rgba(255,255,255,.12))}
+.steps__rider{position:absolute;inset-inline-start:15px;top:calc(10px + var(--p) * (100% - 34px));width:14px;height:14px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 6px rgba(243,134,65,.18),0 0 24px 5px rgba(243,134,65,.5);transition:top .15s linear}
+.step{position:relative;padding-inline-start:70px;min-height:44px}
+.step__num{position:absolute;inset-inline-start:0;top:0;display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--navy-2);border:2px solid rgba(243,134,65,.8);font-weight:800;font-size:17px;color:var(--on-dark)}
+.step h3{padding-top:7px;font-size:21px;font-weight:800}
+.step p{margin-top:6px;font-size:16.5px;line-height:1.6;color:var(--on-dark-2)}
+.terms{position:relative;padding:clamp(24px,3vw,32px);border-radius:var(--r-card);background:var(--card);color:var(--ink);box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.terms h3{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:800}
+.terms h3::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--brand);box-shadow:0 0 0 5px rgba(243,134,65,.18)}
+.terms ul{display:grid;gap:14px;margin-top:18px}
+.terms li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;font-size:16.5px;line-height:1.55;color:var(--ink-2)}
+.terms li .ico{width:22px;height:22px;margin-top:2px;color:var(--brand-dark);stroke-width:2.2}
+.terms__price{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px;padding:14px 18px;border-radius:16px;background:linear-gradient(135deg,#FFF3EA,#FFE6D5);color:#8A3F12;font-weight:700}
+.terms__price b{font-size:28px;font-weight:900;color:var(--ink)}
+
+/* final call */
+.final__card{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.2fr) auto;gap:28px 48px;align-items:center;padding:clamp(28px,5vw,56px);border-radius:var(--r-xl);color:var(--on-dark);background:var(--navy);box-shadow:var(--shadow-lift)}
+.final__card::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(36rem 22rem at -8% 120%,rgba(243,134,65,.45),rgba(243,134,65,0) 62%),
+  radial-gradient(24rem 18rem at 105% -20%,rgba(255,255,255,.08),rgba(255,255,255,0) 62%)}
+.final__card h2{font-size:clamp(30px,4vw,46px);font-weight:900}
+.final__card p{margin-top:12px;font-size:18px;color:var(--on-dark-2)}
+.final__actions{display:grid;gap:12px;min-width:min(100%,300px)}
+.final__call{font-size:15px;color:var(--on-dark-3);text-align:center}
+.final__call a{color:var(--on-dark);font-weight:700;text-decoration:none}
+
+/* footer */
+.footer{background:#0A0D17;color:var(--on-dark-3);padding-block:44px calc(44px + env(safe-area-inset-bottom,0px));font-size:14.5px}
+.footer__in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.footer__logo img{height:60px;width:auto}
+.footer__info{display:grid;gap:6px}
+.footer__info a{color:var(--on-dark-2);text-decoration:none}
+.footer__info a:hover{color:var(--on-dark)}
+.footer__copy{width:100%;padding-top:20px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:#737A89}
+
+/* mobile dock */
+.dock{position:fixed;inset-inline:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:20;display:none;gap:8px;padding:8px;border-radius:20px;background:rgba(12,15,26,.94);box-shadow:0 14px 34px rgba(0,0,0,.38);transform:translateY(calc(100% + 40px));visibility:hidden;transition:transform .3s ease,visibility 0s linear .3s}
+.dock.is-on{transform:none;visibility:visible;transition:transform .3s ease,visibility 0s}
+.dock .btn{flex:1;min-height:52px;padding:0 16px;font-size:16.5px}
+.dock .round{flex:none;width:52px;height:52px}
+
+/* ---------- responsive ---------- */
+@media (max-width:1040px){
+  .hero__in{grid-template-columns:minmax(0,1fr);padding-block:116px 44px}
+  .hero__copy{max-width:640px}
+  .lead{max-width:640px}
+  .process__grid{grid-template-columns:minmax(0,1fr)}
+  .benefits__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pains__grid{grid-template-columns:minmax(0,1fr)}
+  .pain{grid-template-columns:auto 1fr;align-items:center;padding:20px 22px}
+}
+@media (max-width:760px){
+  body{font-size:16.5px}
+  .topbar__logo img{height:46px}
+  .pill{display:none}
+  .hero__in{padding-block:96px 36px;gap:28px}
+  .eyebrow{font-size:13px;padding:6px 12px}
+  .hero h1{margin-top:16px;font-size:clamp(34px,10.4vw,46px)}
+  .hero__lead{margin-top:14px;font-size:16.5px;line-height:1.6}
+  .price{margin-top:20px}
+  .cta-row{margin-top:20px;gap:10px;flex-wrap:nowrap}
+  .cta-row .btn{flex:1 1 0;min-width:0;padding:0 12px;font-size:16px}
+  .trust{margin-top:20px;gap:8px 16px;font-size:13.5px}
+  .price{gap:14px;padding:12px 16px 12px 18px}
+  .price__num{font-size:40px}
+  .price__txt{padding-inline-start:14px;font-size:14px}
+  .price__txt b{font-size:16.5px}
+  .benefits__grid{grid-template-columns:minmax(0,1fr)}
+  .benefit{grid-template-columns:auto 1fr;column-gap:16px;padding:22px}
+  .benefit__icon{grid-row:span 2}
+  .final__card{grid-template-columns:minmax(0,1fr)}
+  .dock{display:flex}
+  .footer{padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+}
+@media (min-width:761px){.round--mobile{display:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="m15.48 12.89 1.51 8.53a.5.5 0 0 1-.81.47l-3.58-2.69a1 1 0 0 0-1.2 0l-3.59 2.69a.5.5 0 0 1-.81-.47l1.51-8.53"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-lang" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.87a.5.5 0 0 0-.75-.43L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="M5 12h14"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></symbol>
+    <symbol id="i-knife" viewBox="0 0 24 24"><g transform="rotate(38 12 12)"><path d="M7.5 2.5h9l-1.6 7.5H9.1z"/><path d="M10.4 10h3.2v2.6h-3.2z"/><path d="M10.1 12.6h3.8l.5 7.4a1.6 1.6 0 0 1-1.6 1.7h-1.6a1.6 1.6 0 0 1-1.6-1.7z"/></g></symbol>
+    <symbol id="i-door" viewBox="0 0 24 24"><path d="M13 4h3a2 2 0 0 1 2 2v14"/><path d="M2 20h3"/><path d="M13 20h9"/><path d="M10 12v.01"/><path d="M13 4.56v16.16a1 1 0 0 1-1.24.97L5 20V5.56a2 2 0 0 1 1.52-1.94l4-1A2 2 0 0 1 13 4.56Z"/></symbol>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a class="topbar__logo" href="https://www.topgova.co.il" aria-label="קבוצת טופ גובה, לאתר החברה">
+      <img src="../assets/logo-on-dark.svg" alt="קבוצת טופ גובה, פתרונות למעטפת הבניין" width="99" height="56">
+    </a>
+    <div class="topbar__actions">
+      <a class="pill" href="tel:+972587799058"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><span class="pill__who">אלי</span><span class="num">058-779-9058</span></a>
+      <a class="round round--mobile" href="tel:+972587799058" aria-label="חיוג לאלי, 058-779-9058"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg></a>
+      <a class="round round--brand js-wa" href="https://wa.me/972587799058" target="_blank" rel="noopener" aria-label="וואטסאפ לאלי"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg></a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg"></div>
+    <div class="hero__arcs"></div>
+    <div class="hero__lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    <div class="rope rope--a" aria-hidden="true"><span></span></div>
+    <div class="rope rope--b" aria-hidden="true"><span></span></div>
+
+    <div class="wrap hero__in">
+      <div class="hero__copy">
+        <span class="eyebrow">עובדי סנפלינג | קבוצת טופ גובה</span>
+        <h1 id="hero-title">עובדי סנפלינג מקצועיים <span class="accent"><span class="nowrap">ב־100 ₪ לשעה</span> <span class="accent__per">+ מע״מ</span></span></h1>
+        <p class="hero__lead">עובדים זרים חרוצים ויעילים, עם 7 שנות ניסיון לפחות בעבודות סנפלינג. מגיעים בזמן, עובדים יום מלא ונשארים עד סוף היום.</p>
+
+        <div class="price" role="group" aria-label="מחיר">
+          <div class="price__fig"><span class="price__num">100</span><span class="price__cur">₪</span></div>
+          <p class="price__txt"><b>לשעה לעובד + מע״מ</b>בהתחייבות למשרה מלאה לחצי שנה לפחות</p>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn--primary js-to-form" href="#lead">השאירו פרטים<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--ghost js-wa" href="https://wa.me/972587799058" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg>וואטסאפ לאלי</a>
+        </div>
+
+        <ul class="trust">
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg>קבלן רשום</li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-badge"/></svg>ISO 9001</li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-award"/></svg>7 שנות ניסיון ומעלה לכל עובד</li>
+        </ul>
+      </div>
+
+      <div class="lead" id="lead">
+        <div class="lead__card">
+          <div id="form-view">
+            <span class="lead__badge"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>שני שדות חובה, 20 שניות</span>
+            <h2>צריכים עובדי סנפלינג?</h2>
+            <p class="lead__sub">משאירים שם חברה וטלפון, ואלי חוזר אליכם עם כל הפרטים.</p>
+
+            <form class="form" id="lead-form" action="__LEADS_ENDPOINT__" method="post" novalidate>
+              <div class="field" id="f-company">
+                <label class="label" for="company">שם החברה <span class="req" aria-hidden="true">*</span></label>
+                <input class="input" id="company" name="company" type="text" autocomplete="organization" maxlength="120" required placeholder="לדוגמה: א.ב. בנייה ושיפוצים">
+                <p class="err" id="company-err"><svg class="ico" aria-hidden="true" focusable="false" style="width:16px;height:16px"><use href="#i-alert"/></svg>כתבו את שם החברה</p>
+              </div>
+
+              <div class="field" id="f-phone">
+                <label class="label" for="phone">טלפון <span class="req" aria-hidden="true">*</span></label>
+                <input class="input input--ltr" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required placeholder="050-1234567">
+                <p class="err" id="phone-err"><svg class="ico" aria-hidden="true" focusable="false" style="width:16px;height:16px"><use href="#i-alert"/></svg>בדקו את מספר הטלפון, למשל 050-1234567</p>
+              </div>
+
+              <fieldset class="field" style="border:0;margin:0;padding:0">
+                <legend class="label" style="margin-bottom:8px">כמה עובדים צריך? <span class="opt">(לא חובה)</span></legend>
+                <div class="chips">
+                  <label class="chip"><input type="radio" name="workers" value="1"><span>1</span></label>
+                  <label class="chip"><input type="radio" name="workers" value="2-3"><span>2-3</span></label>
+                  <label class="chip"><input type="radio" name="workers" value="4-6"><span>4-6</span></label>
+                  <label class="chip"><input type="radio" name="workers" value="7-10"><span>7-10</span></label>
+                  <label class="chip"><input type="radio" name="workers" value="יותר מ־10"><span>יותר מ־10</span></label>
+                </div>
+              </fieldset>
+
+              <details class="more">
+                <summary><span>עוד כמה פרטים שיקצרו את השיחה <span class="opt">(לא חובה)</span></span><span class="plus" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-plus"/></svg></span></summary>
+                <div class="more__body">
+                  <div class="field">
+                    <label class="label" for="contact">שם איש הקשר</label>
+                    <input class="input" id="contact" name="contact" type="text" autocomplete="name" maxlength="80">
+                  </div>
+                  <div class="field">
+                    <label class="label" for="start">מתי מתחילים?</label>
+                    <select class="input" id="start" name="start">
+                      <option value="">בחרו</option>
+                      <option>דחוף, תוך חודש</option>
+                      <option>בעוד חודש־חודשיים</option>
+                      <option>בעוד 2-4 חודשים</option>
+                      <option>בעוד יותר מ־4 חודשים</option>
+                      <option>עוד לא יודעים</option>
+                    </select>
+                  </div>
+                  <fieldset class="field" style="border:0;margin:0;padding:0">
+                    <legend class="label" style="margin-bottom:8px">סוג העבודה</legend>
+                    <div class="chips">
+                      <label class="chip"><input type="checkbox" name="workTypes" value="ניקיון חזיתות וזכוכיות"><span>ניקיון חזיתות וזכוכיות</span></label>
+                      <label class="chip"><input type="checkbox" name="workTypes" value="שיפוצים ותיקוני חזית"><span>שיפוצים ותיקוני חזית</span></label>
+                      <label class="chip"><input type="checkbox" name="workTypes" value="החלפת זכוכיות"><span>החלפת זכוכיות</span></label>
+                      <label class="chip"><input type="checkbox" name="workTypes" value="איטום"><span>איטום</span></label>
+                      <label class="chip"><input type="checkbox" name="workTypes" value="צבע"><span>צבע</span></label>
+                      <label class="chip"><input type="checkbox" name="workTypes" value="חיפוי"><span>חיפוי</span></label>
+                      <label class="chip"><input type="checkbox" name="workTypes" value="אחר"><span>אחר</span></label>
+                    </div>
+                  </fieldset>
+                  <fieldset class="field" style="border:0;margin:0;padding:0">
+                    <legend class="label" style="margin-bottom:8px">שפת העובדים</legend>
+                    <div class="chips">
+                      <label class="chip"><input type="radio" name="language" value="רוסית"><span>רוסית</span></label>
+                      <label class="chip"><input type="radio" name="language" value="אנגלית"><span>אנגלית</span></label>
+                      <label class="chip"><input type="radio" name="language" value="ספרדית"><span>ספרדית</span></label>
+                      <label class="chip"><input type="radio" name="language" value="לא משנה"><span>לא משנה</span></label>
+                    </div>
+                    <p class="hint" style="margin-top:8px">העובדים אינם דוברי עברית.</p>
+                  </fieldset>
+                  <div class="field">
+                    <label class="label" for="notes">הערות</label>
+                    <textarea class="input" id="notes" name="notes" maxlength="1500" placeholder="פרויקט, עיר, גובה הבניין, כל מה שחשוב שנדע"></textarea>
+                  </div>
+                </div>
+              </details>
+
+              <div class="hp" aria-hidden="true">
+                <label for="hp">השאירו ריק</label>
+                <input id="hp" name="hp" type="text" tabindex="-1" autocomplete="off">
+              </div>
+
+              <button class="btn btn--primary btn--block submit" type="submit" id="submit">
+                <span class="submit__label">שלחו ונחזור אליכם</span><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="spinner" aria-hidden="true"></span>
+              </button>
+
+              <div class="alert" id="send-error" role="alert" hidden>
+                <span>השליחה לא עברה. אפשר לנסות שוב, או לשלוח את הפרטים ישר לאלי בוואטסאפ.</span>
+                <a class="btn btn--wa" id="send-error-wa" href="https://wa.me/972587799058" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg>שליחת הפרטים בוואטסאפ</a>
+              </div>
+
+              <p class="privacy"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>הפרטים נשמרים אצל קבוצת טופ גובה ומשמשים רק כדי לחזור אליכם בנוגע לפנייה.</p>
+            </form>
+          </div>
+
+          <div class="done" id="done-view" hidden tabindex="-1">
+            <span class="done__icon"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check"/></svg></span>
+            <h2>קיבלנו, תודה!</h2>
+            <p class="done__ref" id="done-ref">הפנייה נרשמה. אלי יחזור אליכם בהקדם.</p>
+            <p class="done__more">רוצים לזרז?</p>
+            <a class="btn btn--wa" id="done-wa" href="https://wa.me/972587799058" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg>כתבו לאלי בוואטסאפ</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pains" aria-labelledby="pains-title">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="kicker">מכירים את זה?</span>
+        <h2 id="pains-title">נמאס לכם…</h2>
+      </div>
+      <ul class="pains__grid">
+        <li class="pain"><span class="pain__icon" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-coins"/></svg></span><p>מפרילנסר שעוד בסטאז׳ ורוצה 1,500 ₪ ליום?</p></li>
+        <li class="pain"><span class="pain__icon" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-knife"/></svg></span><p>מ"מקצוען" שלא יודע מאיזה צד מחזיקים שפכטל?</p></li>
+        <li class="pain"><span class="pain__icon" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-door"/></svg></span><p>מעובד שמאחר בבוקר, ובאחת בצהריים כבר רוצה הביתה?</p></li>
+      </ul>
+      <div class="pains__answer">
+        <p><strong>דברו איתנו.</strong><span>אצלנו מקבלים אנשי מקצוע שמגיעים בזמן ועובדים יום שלם.</span></p>
+        <a class="btn btn--primary js-to-form" href="#lead">השאירו פרטים<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section benefits" aria-labelledby="benefits-title">
+    <div class="wrap">
+      <div class="section__head">
+        <span class="kicker">מה מקבלים</span>
+        <h2 id="benefits-title">עובדים שבאו לעבוד</h2>
+      </div>
+      <ul class="benefits__grid">
+        <li class="benefit"><span class="benefit__icon" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-award"/></svg></span><h3>7 שנות ניסיון לפחות</h3><p>כל עובד עם ותק של שבע שנים ומעלה בעבודות סנפלינג.</p></li>
+        <li class="benefit"><span class="benefit__icon" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg></span><h3>יום עבודה מלא</h3><p>מגיעים בזמן ועובדים עד סוף היום, כולל ימים ארוכים של עד 12 שעות כשהפרויקט צריך.</p></li>
+        <li class="benefit"><span class="benefit__icon" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-users"/></svg></span><h3>חרוצים ויעילים</h3><p>עובדים זרים עם קצב עבודה גבוה ותפוקה אמיתית.</p></li>
+        <li class="benefit"><span class="benefit__icon" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-lang"/></svg></span><h3>רוסית, אנגלית או ספרדית</h3><p>בוחרים את השפה שהכי נוחה לתקשורת באתר שלכם. העובדים אינם דוברי עברית.</p></li>
+        <li class="benefit"><span class="benefit__icon" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-wrench"/></svg></span><h3>ניסיון לפי סוג העבודה</h3><p>אפשר להזמין עובדים עם ניסיון ספציפי: ניקיון, שיפוצים, החלפת זכוכיות ועוד.</p></li>
+        <li class="benefit"><span class="benefit__icon" aria-hidden="true"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-video"/></svg></span><h3>בוחנים לפני שמזמינים</h3><p>מקבלים סרטוני התרשמות מהעובדים ומחליטים לפני שמתחייבים.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section process" aria-labelledby="process-title">
+    <div class="wrap process__grid">
+      <div>
+        <div class="section__head">
+          <span class="kicker">איך זה עובד</span>
+          <h2 id="process-title">מהפנייה ועד העבודה באתר</h2>
+        </div>
+        <div class="steps" id="steps">
+          <ol class="steps__list">
+          <li class="step"><span class="step__num">1</span><h3>משאירים פרטים</h3><p>שם החברה וטלפון. זה כל מה שצריך כדי להתחיל.</p></li>
+          <li class="step"><span class="step__num">2</span><h3>מדברים עם אלי</h3><p>מגדירים כמה עובדים, לאיזו עבודה, באיזו שפה ומתי מתחילים.</p></li>
+          <li class="step"><span class="step__num">3</span><h3>בוחנים את העובדים</h3><p>מקבלים סרטוני התרשמות ומאשרים את מי שמתאים לכם.</p></li>
+          <li class="step"><span class="step__num">4</span><h3>הצוות עולה לעבודה</h3><p>העובדים מגיעים לפרויקט במועד שנקבע, לפחות חודשיים מיום ההזמנה.</p></li>
+          </ol>
+          <span class="steps__rider" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <aside class="terms" aria-labelledby="terms-title">
+        <h3 id="terms-title">שימו לב</h3>
+        <ul>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>המחיר של 100 ₪ לשעה לעובד + מע״מ מותנה בהתחייבות למשרה מלאה לחצי שנה לפחות.</span></li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>מזמינים עובדים לפחות חודשיים מראש.</span></li>
+          <li><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>אפשר לבחון את העובדים ולקבל סרטוני התרשמות לפני ההזמנה.</span></li>
+        </ul>
+        <div class="terms__price"><span>לשעה לעובד + מע״מ</span><b><span class="num">100</span> ₪</b></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section final" aria-labelledby="final-title">
+    <div class="wrap">
+      <div class="final__card">
+        <div>
+          <h2 id="final-title">צוות שמגיע בזמן ועובד עד הסוף</h2>
+          <p>100 ₪ לשעה לעובד + מע״מ, בהתחייבות למשרה מלאה לחצי שנה לפחות. השאירו פרטים ואלי יחזור אליכם.</p>
+        </div>
+        <div class="final__actions">
+          <a class="btn btn--primary js-to-form" href="#lead">השאירו פרטים<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--ghost js-wa" href="https://wa.me/972587799058" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg>וואטסאפ לאלי</a>
+          <p class="final__call">או חייגו לאלי: <a href="tel:+972587799058"><span class="num">058-779-9058</span></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__in">
+    <a class="footer__logo" href="https://www.topgova.co.il" aria-label="קבוצת טופ גובה, לאתר החברה"><img src="../assets/logo-on-dark.svg" alt="קבוצת טופ גובה" width="106" height="60" loading="lazy"></a>
+    <div class="footer__info">
+      <span>משרד: <a href="tel:+97239633399"><span class="num">03-9633399</span></a> · <a href="mailto:office@topgova.co.il">office@topgova.co.il</a> · <a href="https://www.topgova.co.il">topgova.co.il</a></span>
+      <span>ז׳בוטינסקי 7, רמת גן · קבלן רשום, רישיון 41767</span>
+    </div>
+    <p class="footer__copy">© <span id="year">2026</span> קבוצת טופ גובה. כל הזכויות שמורות.</p>
+  </div>
+</footer>
+
+<div class="dock" id="dock" role="region" aria-label="פעולות מהירות">
+  <a class="btn btn--primary js-to-form" href="#lead">השאירו פרטים</a>
+  <a class="round round--brand js-wa" href="https://wa.me/972587799058" target="_blank" rel="noopener" aria-label="וואטסאפ לאלי"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg></a>
+  <a class="round" href="tel:+972587799058" aria-label="חיוג לאלי"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg></a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var CONFIG = {
+    // כתובת הסקריפט בגוגל שמכניס כל ליד לגיליון. מתמלא בזמן החיבור.
+    endpoint: '__LEADS_ENDPOINT__',
+    whatsapp: '972587799058',
+    page: 'snappling'
+  };
+  if (CONFIG.endpoint.indexOf('__') === 0) CONFIG.endpoint = '';
+  if (CONFIG.endpoint === 'demo') {
+    var ribbon = document.createElement('div');
+    ribbon.textContent = 'תצוגה מקדימה: הטופס כאן לא שולח לשום מקום';
+    ribbon.setAttribute('style', 'position:fixed;top:0;left:0;right:0;z-index:50;text-align:center;padding:6px 12px;font:600 13px/1.4 Heebo,Arial,sans-serif;color:#1B1B1B;background:#FDA269');
+    document.body.appendChild(ribbon);
+  }
+
+  var WA_HELLO = 'היי אלי, ראיתי את הדף של טופ גובה ואני מעוניין בעובדי סנפלינג.';
+  function waLink(text) { return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(text); }
+
+  Array.prototype.forEach.call(document.querySelectorAll('.js-wa'), function (a) { a.href = waLink(WA_HELLO); });
+  var yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+  /* ---------- scroll to the form ---------- */
+  var companyInput = document.getElementById('company');
+  var leadBox = document.getElementById('lead');
+  Array.prototype.forEach.call(document.querySelectorAll('.js-to-form'), function (a) {
+    a.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      leadBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (!document.getElementById('form-view').hidden) {
+        setTimeout(function () { try { companyInput.focus({ preventScroll: true }); } catch (e) { companyInput.focus(); } }, 450);
+      }
+    });
+  });
+
+  /* ---------- mobile dock ---------- */
+  var dock = document.getElementById('dock');
+  var typing = false, sent = false;
+  function updateDock() {
+    var r = leadBox.getBoundingClientRect();
+    var formOnScreen = r.top < window.innerHeight - 140 && r.bottom > 140;
+    dock.classList.toggle('is-on', !sent && !typing && !formOnScreen && window.scrollY > 320);
+  }
+
+  /* ---------- rope rider on the process steps ---------- */
+  var steps = document.getElementById('steps');
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () {
+      ticking = false;
+      updateDock();
+      var r = steps.getBoundingClientRect();
+      var p = (window.innerHeight * 0.62 - r.top) / Math.max(r.height, 1);
+      steps.style.setProperty('--p', Math.max(0, Math.min(1, p)).toFixed(3));
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  onScroll();
+
+  /* ---------- phone ---------- */
+  var INVISIBLE = (function () {
+    var r = [[0x61C, 0x61C], [0x200B, 0x200F], [0x202A, 0x202E], [0x2066, 0x2069], [0xFEFF, 0xFEFF]];
+    return new RegExp('[' + r.map(function (x) { return String.fromCharCode(x[0]) + '-' + String.fromCharCode(x[1]); }).join('') + ']', 'g');
+  })();
+  function normalizePhone(raw) {
+    var s = String(raw || '').replace(INVISIBLE, '').trim();
+    var hasPlus = /^(\+|00)/.test(s);
+    var d = s.replace(/\D/g, '');
+    if (hasPlus && d.indexOf('00') === 0) d = d.slice(2);
+    if ((hasPlus || d.length >= 11) && d.indexOf('972') === 0) { d = '0' + d.slice(3).replace(/^0/, ''); hasPlus = false; }
+    if (!hasPlus) {
+      if (/^0(5\d|7\d)\d{7}$/.test(d)) return d.slice(0, 3) + '-' + d.slice(3);
+      if (/^0[23489]\d{7}$/.test(d)) return d.slice(0, 2) + '-' + d.slice(2);
+      if (/^1(599|700|800)\d{6}$/.test(d)) return d;
+      return null;
+    }
+    if (/^[1-9]\d{7,14}$/.test(d)) return '+' + d;
+    return null;
+  }
+
+  /* ---------- where the visitor came from ---------- */
+  function sourceInfo() {
+    var parts = ['דף: ' + CONFIG.page];
+    try {
+      var q = new URLSearchParams(location.search);
+      ['src', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'ref'].forEach(function (k) {
+        var v = q.get(k);
+        if (v) parts.push(k + '=' + v.slice(0, 60));
+      });
+      if (q.get('fbclid')) parts.push('פייסבוק');
+      if (q.get('gclid')) parts.push('גוגל');
+    } catch (e) {}
+    try {
+      if (document.referrer) {
+        var h = new URL(document.referrer).hostname;
+        if (h && h !== location.hostname) parts.push('הגיע מ: ' + h);
+      }
+    } catch (e) {}
+    return parts.join(' · ');
+  }
+
+  /* ---------- form ---------- */
+  var form = document.getElementById('lead-form');
+  var submitBtn = document.getElementById('submit');
+  var sendError = document.getElementById('send-error');
+  var sendErrorWa = document.getElementById('send-error-wa');
+  var formView = document.getElementById('form-view');
+  var doneView = document.getElementById('done-view');
+  var sending = false;
+  form.addEventListener('focusin', function () { typing = true; updateDock(); });
+  form.addEventListener('focusout', function () { setTimeout(function () { typing = form.contains(document.activeElement); updateDock(); }, 60); });
+
+  function setError(name, on) {
+    var field = document.getElementById('f-' + name);
+    var input = document.getElementById(name);
+    field.classList.toggle('has-error', on);
+    input.setAttribute('aria-invalid', on ? 'true' : 'false');
+    if (on) input.setAttribute('aria-describedby', name + '-err'); else input.removeAttribute('aria-describedby');
+  }
+  ['company', 'phone'].forEach(function (name) {
+    document.getElementById(name).addEventListener('input', function () {
+      if (document.getElementById('f-' + name).classList.contains('has-error')) setError(name, false);
+    });
+  });
+  document.getElementById('phone').addEventListener('blur', function () {
+    var v = this.value.trim();
+    if (!v) return;
+    var n = normalizePhone(v);
+    if (n) { this.value = n; setError('phone', false); } else { setError('phone', true); }
+  });
+
+  function collect() {
+    var fd = new FormData(form);
+    function val(k) { return String(fd.get(k) || '').trim(); }
+    return {
+      company: val('company'),
+      phone: val('phone'),
+      contact: val('contact'),
+      workers: val('workers'),
+      start: val('start'),
+      workTypes: fd.getAll('workTypes'),
+      language: val('language'),
+      notes: val('notes'),
+      hp: val('hp'),
+      source: sourceInfo()
+    };
+  }
+
+  function detailsText(d) {
+    var lines = ['היי אלי, אני מעוניין בעובדי סנפלינג.'];
+    if (d.company) lines.push('חברה: ' + d.company);
+    if (d.phone) lines.push('טלפון: ' + d.phone);
+    if (d.contact) lines.push('איש קשר: ' + d.contact);
+    if (d.workers) lines.push('כמה עובדים: ' + d.workers);
+    if (d.start) lines.push('מתי מתחילים: ' + d.start);
+    if (d.workTypes && d.workTypes.length) lines.push('סוג העבודה: ' + d.workTypes.join(', '));
+    if (d.language) lines.push('שפת העובדים: ' + d.language);
+    if (d.notes) lines.push('הערות: ' + d.notes);
+    return lines.join('\n');
+  }
+
+  function setSending(on) {
+    sending = on;
+    submitBtn.disabled = on;
+    submitBtn.setAttribute('aria-busy', on ? 'true' : 'false');
+    submitBtn.querySelector('.submit__label').textContent = on ? 'שולחים…' : 'שלחו ונחזור אליכם';
+  }
+
+  function send(data) {
+    if (!CONFIG.endpoint) return Promise.reject({ code: 'not-connected' });
+    if (CONFIG.endpoint === 'demo') return new Promise(function (ok) { setTimeout(function () { ok({ ok: true, id: 1001 }); }, 900); });
+    var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 20000);
+    return fetch(CONFIG.endpoint, { method: 'POST', body: JSON.stringify(data), signal: ctrl ? ctrl.signal : undefined })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        clearTimeout(timer);
+        if (!j || !j.ok) throw { code: (j && j.error) || 'server' };
+        return j;
+      }, function (e) { clearTimeout(timer); throw e; });
+  }
+
+  function showDone(id, data) {
+    var ref = document.getElementById('done-ref');
+    if (id) {
+      ref.innerHTML = '';
+      ref.appendChild(document.createTextNode('פנייה מס׳ '));
+      var b = document.createElement('b'); b.textContent = String(id); ref.appendChild(b);
+      ref.appendChild(document.createTextNode(' נרשמה. אלי יחזור אליכם בהקדם.'));
+    }
+    document.getElementById('done-wa').href = waLink('היי אלי, השארתי עכשיו פרטים בדף של טופ גובה' + (id ? ' (פנייה ' + id + ')' : '') + '. חברה: ' + data.company);
+    formView.hidden = true;
+    doneView.hidden = false;
+    sent = true;
+    updateDock();
+    try { doneView.focus({ preventScroll: true }); } catch (e) {}
+    leadBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (sending) return;
+    sendError.hidden = true;
+    var data = collect();
+    var bad = [];
+    if (data.company.length < 2) bad.push('company');
+    var phone = normalizePhone(data.phone);
+    if (!phone) bad.push('phone');
+    setError('company', bad.indexOf('company') > -1);
+    setError('phone', bad.indexOf('phone') > -1);
+    if (bad.length) { document.getElementById(bad[0]).focus(); return; }
+    data.phone = phone;
+    document.getElementById('phone').value = phone;
+
+    setSending(true);
+    send(data).then(function (res) {
+      setSending(false);
+      showDone(res.id, data);
+    }, function (err) {
+      setSending(false);
+      var code = err && err.code;
+      if (code === 'company' || code === 'phone') {
+        setError(code, true);
+        document.getElementById(code).focus();
+        return;
+      }
+      sendErrorWa.href = waLink(detailsText(data));
+      sendError.hidden = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>
