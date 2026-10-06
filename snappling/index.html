@@ -167,6 +167,7 @@ select.input{appearance:none;-webkit-appearance:none;padding-left:44px;cursor:po
 .submit[aria-busy="true"] .ico{display:none}
 .submit[disabled]{cursor:progress;opacity:.85}
 @keyframes spin{to{transform:rotate(360deg)}}
+.slow{margin:-6px 0 0;text-align:center;font-size:14px;color:var(--ink-muted)}
 .privacy{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.5;color:var(--ink-soft)}
 .privacy .ico{width:16px;height:16px;margin-top:2px}
 .alert{display:grid;gap:12px;padding:16px;border-radius:16px;background:#FFF4F2;border:1px solid #F5C7C1;color:#7A1F17;font-size:15px}
@@ -459,6 +460,8 @@ select.input{appearance:none;-webkit-appearance:none;padding-left:44px;cursor:po
                 <span class="submit__label">שלחו ונחזור אליכם</span><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg><span class="spinner" aria-hidden="true"></span>
               </button>
 
+              <p class="slow" id="slow-note" aria-live="polite" hidden>עוד רגע, שומרים את הפרטים…</p>
+
               <div class="alert" id="send-error" role="alert" hidden>
                 <span>השליחה לא עברה. אפשר לנסות שוב, או לשלוח את הפרטים ישר לאלי בוואטסאפ.</span>
                 <a class="btn btn--wa" id="send-error-wa" href="https://wa.me/972587799058" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-chat"/></svg>שליחת הפרטים בוואטסאפ</a>
@@ -595,6 +598,12 @@ select.input{appearance:none;-webkit-appearance:none;padding-left:44px;cursor:po
     ribbon.textContent = 'תצוגה מקדימה: הטופס כאן לא שולח לשום מקום';
     ribbon.setAttribute('style', 'position:fixed;top:0;left:0;right:0;z-index:50;text-align:center;padding:6px 12px;font:600 13px/1.4 Heebo,Arial,sans-serif;color:#1B1B1B;background:#FDA269');
     document.body.appendChild(ribbon);
+  }
+
+  if (CONFIG.endpoint && CONFIG.endpoint !== 'demo') {
+    setTimeout(function () {
+      try { fetch(CONFIG.endpoint + '?warm=' + Date.now(), { mode: 'no-cors', credentials: 'omit', cache: 'no-store' }); } catch (e) {}
+    }, 1200);
   }
 
   var WA_HELLO = 'היי אלי, ראיתי את הדף של טופ גובה ואני מעוניין בעובדי סנפלינג.';
@@ -746,8 +755,13 @@ select.input{appearance:none;-webkit-appearance:none;padding-left:44px;cursor:po
     return lines.join('\n');
   }
 
+  var slowTimer = null;
   function setSending(on) {
     sending = on;
+    var slow = document.getElementById('slow-note');
+    clearTimeout(slowTimer);
+    slow.hidden = true;
+    if (on) slowTimer = setTimeout(function () { slow.hidden = false; }, 4000);
     submitBtn.disabled = on;
     submitBtn.setAttribute('aria-busy', on ? 'true' : 'false');
     submitBtn.querySelector('.submit__label').textContent = on ? 'שולחים…' : 'שלחו ונחזור אליכם';
@@ -757,7 +771,7 @@ select.input{appearance:none;-webkit-appearance:none;padding-left:44px;cursor:po
     if (!CONFIG.endpoint) return Promise.reject({ code: 'not-connected' });
     if (CONFIG.endpoint === 'demo') return new Promise(function (ok) { setTimeout(function () { ok({ ok: true, id: 1001 }); }, 900); });
     var ctrl = typeof AbortController === 'function' ? new AbortController() : null;
-    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 20000);
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 60000);
     return fetch(CONFIG.endpoint, { method: 'POST', body: JSON.stringify(data), signal: ctrl ? ctrl.signal : undefined })
       .then(function (r) { return r.json(); })
       .then(function (j) {
