@@ -379,7 +379,7 @@ select.input{appearance:none;-webkit-appearance:none;padding-left:44px;cursor:po
             <h2>צריכים עובדי סנפלינג?</h2>
             <p class="lead__sub">משאירים שם חברה וטלפון, ואלי חוזר אליכם עם כל הפרטים.</p>
 
-            <form class="form" id="lead-form" action="__LEADS_ENDPOINT__" method="post" novalidate>
+            <form class="form" id="lead-form" action="https://script.google.com/macros/s/AKfycbyqXG_KLr-hddY8FdLltnA2mVXNDIRhKLAE5ST8MiQWcyUoaR9tUEX98Ljb-J_w3qpC/exec" method="post" novalidate>
               <div class="field" id="f-company">
                 <label class="label" for="company">שם החברה <span class="req" aria-hidden="true">*</span></label>
                 <input class="input" id="company" name="company" type="text" autocomplete="organization" maxlength="120" required placeholder="לדוגמה: א.ב. בנייה ושיפוצים">
@@ -585,7 +585,7 @@ select.input{appearance:none;-webkit-appearance:none;padding-left:44px;cursor:po
 
   var CONFIG = {
     // כתובת הסקריפט בגוגל שמכניס כל ליד לגיליון. מתמלא בזמן החיבור.
-    endpoint: '__LEADS_ENDPOINT__',
+    endpoint: 'https://script.google.com/macros/s/AKfycbyqXG_KLr-hddY8FdLltnA2mVXNDIRhKLAE5ST8MiQWcyUoaR9tUEX98Ljb-J_w3qpC/exec',
     whatsapp: '972587799058',
     page: 'snappling'
   };
